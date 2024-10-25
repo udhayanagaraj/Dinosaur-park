@@ -6,6 +6,7 @@ import com.example.Dinosaur.Models.Employee;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.UUID;
 
 public class EmployeeController {
     Scanner scanner = new Scanner(System.in);
@@ -33,17 +34,16 @@ public class EmployeeController {
                     break;
                 case 2:
                     System.out.println("Enter the employee id: ");
-                    int id = scanner.nextInt();
+                    String empId = scanner.nextLine();
                     scanner.nextLine();
-                    updateEmployee(id);
+                    updateEmployee(empId);
                     break;
                 case 3:
                     listEmployees();
                     break;
                 case 4:
                     System.out.println("Enter the dino id: ");
-                    int searchId = scanner.nextInt();
-                    scanner.nextLine();
+                    String searchId = scanner.nextLine();
                     getEmployee(searchId);
                     break;
                 default:
@@ -55,9 +55,6 @@ public class EmployeeController {
 
 
     public void addEmployee(){
-        System.out.println("Enter the id: ");
-        int id = scanner.nextInt();
-        scanner.nextLine();
         System.out.println("Enter the name: ");
         String name = scanner.nextLine();
         System.out.println("Enter the age: ");
@@ -74,7 +71,7 @@ public class EmployeeController {
         int reportingTo = scanner.nextInt();
         scanner.nextLine();
 
-        Employee employee = new Employee(name,age,id,department,gender,yearsOfExp, LocalDate.now().toString(),reportingTo);
+        Employee employee = new Employee(name,age,UUID.randomUUID().toString(),department,gender,yearsOfExp, LocalDate.now().toString(),reportingTo);
         employees.add(employee);
         System.out.println("Employee added successfully");
     }
@@ -83,11 +80,11 @@ public class EmployeeController {
         System.out.println(employees);
     }
 
-    public void getEmployee(int id){
+    public void getEmployee(String id){
         Employee employee = null;
 
         for(Employee e : employees){
-            if(e.getEmpId() == id){
+            if(e.getEmpId().equals(id)){
                 employee = e;
                 break;
             }
@@ -101,10 +98,10 @@ public class EmployeeController {
         System.out.println(employee);
     }
 
-    public void updateEmployee(int id){
+    public void updateEmployee(String id){
         Employee employee = null;
         for (Employee e : employees){
-            if(e.getEmpId() == id){
+            if(e.getEmpId().equals(id)){
                 employee = e;
                 break;
             }

@@ -4,6 +4,7 @@ import com.example.Dinosaur.Models.Dinosaur;
 
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.UUID;
 
 public class DinosaurController {
     ArrayList<Dinosaur> dinoList = new ArrayList<>();
@@ -32,7 +33,7 @@ public class DinosaurController {
                     break;
                 case 2:
                     System.out.println("Enter the dino id: ");
-                    int id = scanner.nextInt();
+                    String id = scanner.nextLine();
                     updateDinosaurs(id);
                     break;
                 case 3:
@@ -40,13 +41,13 @@ public class DinosaurController {
                     break;
                 case 4:
                     System.out.println("Enter the dino id: ");
-                    int searchId = scanner.nextInt();
+                    String searchId = scanner.nextLine();
                     getDinosaur(searchId);
                     break;
                 case 5:
                     System.out.println("Enter the dino id: ");
-                    int dId = scanner.nextInt();
-                    deleteDino(dId);
+                    String deleteId = scanner.nextLine();
+                    deleteDino(deleteId);
                     break;
                 default:
                     System.out.println("Invalid choice");
@@ -85,7 +86,7 @@ public class DinosaurController {
         String enclosureNo = scanner.nextLine();
 
 
-        Dinosaur dinosaur = new Dinosaur(id,name, age, species, type, gender, enclosureNo, weight, height, feedingProportion, feedingTimes.split(" "));
+        Dinosaur dinosaur = new Dinosaur(UUID.randomUUID().toString(),name, age, species, type, gender, enclosureNo, weight, height, feedingProportion, feedingTimes.split(" "));
         dinoList.add(dinosaur);
 
         System.out.println("Dinosaur added successfully");
@@ -95,11 +96,11 @@ public class DinosaurController {
         System.out.println(dinoList);
     }
 
-    public void getDinosaur(int id){
+    public void getDinosaur(String id){
         Dinosaur dinosaur = null;
 
         for(Dinosaur d : dinoList){
-            if(d.getId() == id){
+            if(d.getId().equals(id)){
                 dinosaur = d;
             }
         }
@@ -111,10 +112,10 @@ public class DinosaurController {
         System.out.println(dinosaur);
     }
 
-    public void updateDinosaurs(int id){
+    public void updateDinosaurs(String id){
         Dinosaur dinosaur = null;
         for (Dinosaur d : dinoList){
-            if(d.getId() == id){
+            if(d.getId().equals(id)){
                 dinosaur = d;
                 break;
             }
@@ -214,11 +215,11 @@ public class DinosaurController {
         }
     }
 
-    public void deleteDino(int id){
+    public void deleteDino(String id){
         Dinosaur dinosaur = null;
 
         for(Dinosaur d : dinoList){
-            if(d.getId() == id){
+            if(d.getId().equals(id)){
                 dinosaur =  d;
             }
         }

@@ -3,17 +3,17 @@ package com.example.Dinosaur.Models;
 public class Employee{
     String name;
     int age;
-    int empId;
+    String id;
     String department;
     String gender;
     int yearsOfExp;
     int reportingTo;
     String joiningDate;
 
-    public Employee(String name, int age, int empId,String gender, String department,int yearsOfExp, String joiningDate,int reportingTo) {
+    public Employee(String name, int age, String empId,String gender, String department,int yearsOfExp, String joiningDate,int reportingTo) {
         this.name = name;
         this.age = age;
-        this.empId = empId;
+        this.id = empId;
         this.gender = gender;
         this.department = department;
         this.yearsOfExp = yearsOfExp;
@@ -37,12 +37,12 @@ public class Employee{
         this.age = age;
     }
 
-    public int getEmpId() {
-        return empId;
+    public String getEmpId() {
+        return id;
     }
 
-    public void setEmpId(int empId) {
-        this.empId = empId;
+    public void setEmpId(String empId) {
+        this.id = empId;
     }
 
     public String getDepartment() {
@@ -91,7 +91,7 @@ public class Employee{
         return "Employee{" +
                 "name='" + name + '\'' +
                 ", age=" + age +
-                ", empId=" + empId +
+                ", empId=" + id +
                 ", department='" + department + '\'' +
                 ", joiningDate='" + joiningDate + '\'' +
                 ", yearsOfExp=" + yearsOfExp +

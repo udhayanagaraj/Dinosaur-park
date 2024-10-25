@@ -2,6 +2,7 @@ package com.example.Dinosaur;
 
 import com.example.Dinosaur.Controllers.DinosaurController;
 import com.example.Dinosaur.Controllers.EmployeeController;
+import com.example.Dinosaur.Controllers.GuestController;
 
 import java.util.Scanner;
 
@@ -71,24 +72,36 @@ public class Project {
         System.out.println("Park opens from 08:00 to 20:00");
         System.out.println("Mesozoic Eden is safe and secure");
 
-        System.out.println("Enter 1 to dino operations");
-        System.out.println("Enter 2 for employee operations");
+        int choice = -1;
 
-        int choice = scanner.nextInt();
+        while(choice != 0) {
+            System.out.println("Enter 1 to dino operations");
+            System.out.println("Enter 2 for employee operations");
+            System.out.println("Enter 3 for guest operations");
 
-        switch (choice){
-            case 1:
-                DinosaurController dinosaurController = new DinosaurController();
-                dinosaurController.displayMenu();
-                break;
-            case 2:
-                EmployeeController employeeController = new EmployeeController();
-                employeeController.displayMenu();
-                break;
-            default:
-                System.out.println("Invalid choice");
-                break;
-        }
+            choice = scanner.nextInt();
+
+            switch (choice) {
+                case 0:
+                    System.out.println("Exited...");
+                    break;
+                case 1:
+                    DinosaurController dinosaurController = new DinosaurController();
+                    dinosaurController.displayMenu();
+                    break;
+                case 2:
+                    EmployeeController employeeController = new EmployeeController();
+                    employeeController.displayMenu();
+                    break;
+                case 3:
+                    GuestController guestController = new GuestController();
+                    guestController.displayMenu();
+                    break;
+                default:
+                    System.out.println("Invalid choice");
+                    break;
+            }
 //        mealPortionResult(2000,5,2);
+        }
     }
 }

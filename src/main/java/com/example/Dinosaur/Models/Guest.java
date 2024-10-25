@@ -2,18 +2,18 @@ package com.example.Dinosaur.Models;
 
 public class Guest {
     String name;
-    int id;
+    String id;
     int age;
     String gender;
-    String entryTime;
+    Ticket ticket;
     boolean isVip;
 
-    public Guest(String name, int id, int age, String gender, String entryTime, boolean isVip) {
+    public Guest(String name, String id, int age, String gender,Ticket ticket, boolean isVip) {
         this.name = name;
         this.id = id;
         this.age = age;
         this.gender = gender;
-        this.entryTime = entryTime;
+        this.ticket = ticket;
         this.isVip = isVip;
     }
 
@@ -26,11 +26,11 @@ public class Guest {
         this.name = name;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -46,16 +46,16 @@ public class Guest {
         return gender;
     }
 
+    public Ticket getTicket() {
+        return ticket;
+    }
+
+    public void setTicket(Ticket ticket) {
+        this.ticket = ticket;
+    }
+
     public void setGender(String gender) {
         this.gender = gender;
-    }
-
-    public String getEntryTime() {
-        return entryTime;
-    }
-
-    public void setEntryTime(String entryTime) {
-        this.entryTime = entryTime;
     }
 
     public boolean isVip() {
@@ -69,11 +69,12 @@ public class Guest {
     @Override
     public String toString() {
         return "Guest{" +
-                "entryTime='" + entryTime + '\'' +
-                ", gender='" + gender + '\'' +
+                "name='" + name + '\'' +
+                ", id='" + id + '\'' +
                 ", age=" + age +
-                ", id=" + id +
-                ", name='" + name + '\'' +
+                ", gender='" + gender + '\'' +
+                ", ticket=" + ticket +
+                ", isVip=" + isVip +
                 '}';
     }
 }

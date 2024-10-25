@@ -3,7 +3,7 @@ package com.example.Dinosaur.Models;
 import java.util.Arrays;
 
 public class Dinosaur {
-    int id;
+    String id;
     String name;
     int age;
     String species;
@@ -15,7 +15,7 @@ public class Dinosaur {
     int feedingProportion;
     String[] feedingTimes;
 
-    public Dinosaur(int id,String name, int age, String species, String type, String gender, String enclosure, double weight, double height, int feedingProportion, String[] feedingTimes) {
+    public Dinosaur(String id,String name, int age, String species, String type, String gender, String enclosure, double weight, double height, int feedingProportion, String[] feedingTimes) {
         this.id = id;
         this.name = name;
         this.age = age;
@@ -29,11 +29,11 @@ public class Dinosaur {
         this.feedingTimes = feedingTimes;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
